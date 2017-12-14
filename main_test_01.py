@@ -10,10 +10,9 @@ video_capture = cv2.VideoCapture(0)
 
 while True:
 
-    filename = 'C:\\Users\\dsoto\\Google Drive\\Personales\\Proyectos\\CV2Project\\FotoTest1.jpg'
-    now  = datetime.datetime.now()
-
-    print now
+    # set file name with datetime
+    filename = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f') + ".jpg"
+    print filename
 
     # Capture frame-by-frame
     ret, frame = video_capture.read()
@@ -33,7 +32,7 @@ while True:
     # Display the resulting frame
     cv2.imshow('Video', frame)
 
-    if cv2.waitKey(0) & 0xFF == ord('q'):
+    if cv2.waitKey(200) & 0xFF == ord('q'):
         break
 
 # When everything is done, release the capture
